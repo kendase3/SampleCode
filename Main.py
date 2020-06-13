@@ -1,10 +1,14 @@
+from typing import List, Dict
+from statistics import mean
+
 
 class QuestionOne:
     def solve(self):
         for count in range(1, 101):
             print(self.get_value(count))
 
-    def get_value(self, count: int) -> str:
+    @staticmethod
+    def get_value(count: int) -> str:
         if count % 15 == 0:
             return "FizzBuzz"
         elif count % 5 == 0:
@@ -16,8 +20,16 @@ class QuestionOne:
 
 
 class QuestionTwo:
-    def solve(self):
-        pass
+    @staticmethod
+    def solve(number_list: List[float]):
+        try:
+            lowest = min(number_list)
+            highest = max(number_list)
+            average = mean(number_list)
+
+            return {'lowest': lowest, 'highest': highest, 'average': average}
+        except ValueError:
+            return None
 
 
 class QuestionThree:

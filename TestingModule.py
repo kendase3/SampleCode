@@ -2,6 +2,8 @@ import Main
 import unittest
 from ddt import ddt, data
 
+from statistics import mean
+
 
 @ddt
 class Tester(unittest.TestCase):
@@ -33,14 +35,21 @@ class Tester(unittest.TestCase):
     def test_q_one_correctly_returns_numbers(self, sample_value):
         self.assertTrue(self.q_one.get_value(sample_value) == str(sample_value))
 
-    def q_two_correctly_returns_lowest_number(self):
-        pass
+    @data([1, 2, 3], [-1, 0, 1], [0], [1.2, 1.4, -0.01])
+    def test_q_two_correctly_returns_lowest_number(self, number_list):
+        self.assertTrue(self.q_two.solve(number_list)['lowest'] == min(number_list))
 
-    def q_two_correctly_returns_highest_number(self):
-        pass
+    @data([1, 2, 3], [-1, 0, 1], [0], [1.2, 1.4, -0.01])
+    def test_q_two_correctly_returns_highest_number(self, number_list):
+        self.assertTrue(self.q_two.solve(number_list)['highest'] == max(number_list))
 
-    def q_two_correctly_returns_average_number(self):
-        pass
+    @data([1, 2, 3], [-1, 0, 1], [0], [1.2, 1.4, -0.01])
+    def test_q_two_correctly_returns_average_number(self, number_list):
+        self.assertTrue(self.q_two.solve(number_list)['average'] == mean(number_list))
+
+    @data([])
+    def test_q_two_correctly_handles_empty_lists(self, number_list):
+        self.assertTrue(self.q_two.solve(number_list) is None)
 
     def q_three_correctly_returns_largest_prime_factor(self):
         pass
