@@ -33,7 +33,7 @@ class QuestionTwo:
 
 
 class QuestionThree:
-    def solve(self):
+    def solve(self, number):
         pass
 
 
@@ -43,14 +43,22 @@ class QuestionFour:
 
 
 def main():
-    question_one = QuestionOne
-    question_two = QuestionTwo
-    question_three = QuestionThree
-    question_four = QuestionFour
+    question_one = QuestionOne()
+    question_two = QuestionTwo()
+    question_three = QuestionThree()
+    question_four = QuestionFour()
 
+    # Arguments for calling below functions:
+    q_two_list = []
+    q_three_number = 1001
+
+    print("Question 1:")
     question_one.solve()
-    question_two.solve()
-    question_three.solve()
+    print("Question 2:")
+    question_two.solve(q_two_list)
+    print("Question 3:")
+    question_three.solve(q_three_number)
+    print("Question 4:")
     question_four.solve()
 
 
