@@ -1,7 +1,18 @@
 
 class QuestionOne:
     def solve(self):
-        pass
+        for count in range(1, 101):
+            print(self.get_value(count))
+
+    def get_value(self, count: int) -> str:
+        if count % 15 == 0:
+            return "FizzBuzz"
+        elif count % 5 == 0:
+            return "Buzz"
+        elif count % 3 == 0:
+            return "Fizz"
+        else:
+            return str(count)
 
 
 class QuestionTwo:
