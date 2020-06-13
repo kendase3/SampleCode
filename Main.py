@@ -20,8 +20,16 @@ class QuestionOne:
 
 
 class QuestionTwo:
+    def solve(self, number_list: List[float]):
+        result = self.get_results(number_list)
+        if result is None:
+            print("The list you've provided is illegal.")
+        else:
+            for key, value in result.items():
+                print(key, ":", value)
+
     @staticmethod
-    def solve(number_list: List[float]):
+    def get_results(number_list: List[float]):
         try:
             lowest = min(number_list)
             highest = max(number_list)

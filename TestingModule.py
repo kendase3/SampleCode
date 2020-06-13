@@ -37,19 +37,19 @@ class Tester(unittest.TestCase):
 
     @data([1, 2, 3], [-1, 0, 1], [0], [1.2, 1.4, -0.01])
     def test_q_two_correctly_returns_lowest_number(self, number_list):
-        self.assertTrue(self.q_two.solve(number_list)['lowest'] == min(number_list))
+        self.assertTrue(self.q_two.get_results(number_list)['lowest'] == min(number_list))
 
     @data([1, 2, 3], [-1, 0, 1], [0], [1.2, 1.4, -0.01])
     def test_q_two_correctly_returns_highest_number(self, number_list):
-        self.assertTrue(self.q_two.solve(number_list)['highest'] == max(number_list))
+        self.assertTrue(self.q_two.get_results(number_list)['highest'] == max(number_list))
 
     @data([1, 2, 3], [-1, 0, 1], [0], [1.2, 1.4, -0.01])
     def test_q_two_correctly_returns_average_number(self, number_list):
-        self.assertTrue(self.q_two.solve(number_list)['average'] == mean(number_list))
+        self.assertTrue(self.q_two.get_results(number_list)['average'] == mean(number_list))
 
     @data([])
     def test_q_two_correctly_handles_empty_lists(self, number_list):
-        self.assertTrue(self.q_two.solve(number_list) is None)
+        self.assertTrue(self.q_two.get_results(number_list) is None)
 
     def q_three_correctly_returns_largest_prime_factor(self):
         pass
