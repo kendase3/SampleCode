@@ -75,7 +75,15 @@ class QuestionTwo:
 
 
 class QuestionThree:
-    def solve(self, number: int):
+    """
+        Supports calculation of largest prime factor of a number, if number is greater or equal to 2.
+    """
+    def solve(self, number: int) -> None:
+        """
+
+        :param number: Integer value being checked for its largest prime factor.
+        :return: None. Prints largest prime factor of above param, if available. If not available, prints error comment.
+        """
         if number > 1:
             largest_factor = self.find_largest_prime_factor(number)
             print("The largest prime factor of {0} is {1}".format(number, largest_factor))
@@ -83,6 +91,12 @@ class QuestionThree:
             print("The number {0} is not supported.".format(number))
 
     def find_largest_prime_factor(self, upper_bound, lower_bound=2):
+        """
+        Recursive function used to find largest prime factor. Starting value of upper_bound is number in question.
+        :param upper_bound: Upper bound for searching for prime factor. First initialization to be number in question.
+        :param lower_bound: Starting point for prime factor search. Defaults to 2, but can be changed to higher numbers.
+        :return:
+        """
         try:
             sqrt = int(math.sqrt(upper_bound))
 
