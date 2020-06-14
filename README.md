@@ -43,3 +43,6 @@ Q3: From a mathematical point of view, the solution is probably optimal - I at l
     
     So to sum up: mathematically, probably fastest way (at least that I know of); computationally, can be imrpoved w/ sieves, but you'd
     need to know range for primes, so is avoided here. And that is only classical computational complexity.
+    
+Q4: The complexity here is similar to Q1 in that most of the speedups I see that can be done are by just combining the functions in Q4
+    class and otherwise making things more terse. Other than that, it should be a fairly optimal solution.
