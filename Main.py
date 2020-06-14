@@ -41,7 +41,15 @@ class QuestionOne:
 
 
 class QuestionTwo:
-    def solve(self, number_list: List[float]):
+    """
+        Handles statistics of list of numbers, returning smallest, largest, average of list.
+    """
+    def solve(self, number_list: List[float]) -> None:
+        """
+
+        :param number_list: List of numbers to run statistics.
+        :return: None. Prints smallest, largest, average of above param.
+        """
         result = self.get_results(number_list)
         if result is None:
             print("The list you've provided is illegal.")
@@ -51,6 +59,11 @@ class QuestionTwo:
 
     @staticmethod
     def get_results(number_list: List[float]):
+        """
+
+        :param number_list: List of numbers to run statistics.
+        :return: Dictionary of smallest, largest number, and average of all numbers.
+        """
         try:
             lowest = min(number_list)
             highest = max(number_list)
