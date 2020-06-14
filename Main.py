@@ -1,6 +1,6 @@
 from typing import List, Dict
 from statistics import mean
-
+import math
 
 class QuestionOne:
     def solve(self):
@@ -41,8 +41,26 @@ class QuestionTwo:
 
 
 class QuestionThree:
-    def solve(self, number):
-        pass
+    def solve(self, number: int):
+        if number > 1:
+            largest_factor = self.find_largest_prime_factor(number)
+            print("The largest prime factor of {0} is {1}".format(number, largest_factor))
+        else:
+            print("The number {0} is not supported.".format(number))
+
+    def find_largest_prime_factor(self, upper_bound, lower_bound=2):
+        try:
+            sqrt = int(math.sqrt(upper_bound))
+
+            for num in range(lower_bound, sqrt+1):
+                if upper_bound % num == 0:
+                    co_factor = int(upper_bound/num)
+                    if co_factor < math.sqrt(lower_bound * upper_bound):
+                        return co_factor
+                    return self.find_largest_prime_factor(co_factor, lower_bound)
+            return upper_bound
+        except ValueError:
+            return None
 
 
 class QuestionFour:

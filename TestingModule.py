@@ -51,14 +51,18 @@ class Tester(unittest.TestCase):
     def test_q_two_correctly_handles_empty_lists(self, number_list):
         self.assertTrue(self.q_two.get_results(number_list) is None)
 
-    def q_three_correctly_returns_largest_prime_factor(self):
-        pass
+    @data([2, 2], [4, 2], [15, 5], [9, 3], [45, 5], [600851475143, 6857])
+    def test_q_three_correctly_returns_largest_prime_factor(self, sample_values):
+        self.assertTrue(self.q_three.find_largest_prime_factor(sample_values[0]) == sample_values[1])
 
-    def q_three_returns_result_that_is_a_factor(self):
-        pass
+    @data(45, 2, 321)
+    def test_q_three_returns_result_that_is_a_factor(self, sample_value):
+        self.assertTrue(sample_value % self.q_three.find_largest_prime_factor(sample_value) == 0)
 
-    def q_three_returns_result_that_is_prime(self):
-        pass
+    @data(2, 4, 78, 300)
+    def test_q_three_returns_result_that_is_prime(self, sample_value):
+        prime_list = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37]
+        self.assertTrue(self.q_three.find_largest_prime_factor(sample_value) in prime_list)
 
     def q_four_can_output_values_and_sum_of_dice(self):
         pass
