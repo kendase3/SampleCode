@@ -5,20 +5,39 @@ import random
 
 
 class QuestionOne:
-    def solve(self):
-        for count in range(1, 101):
+    """
+        Handles FizzBuzz solution.
+    """
+    def __init__(self, max_num: int = 100):
+        """
+
+        :param max_num: Sets max num to which FizzBuzz is implemented; default is 100.
+        """
+        self.max_num = max_num + 1
+
+    def solve(self) -> None:
+        """
+
+        :return: None. Prints each value on new lines until ``max_num``.
+        """
+        for count in range(1, self.max_num):
             print(self.get_value(count))
 
     @staticmethod
-    def get_value(count: int) -> str:
-        if count % 15 == 0:
+    def get_value(num: int) -> str:
+        """
+        Function that returns standard FizzBuzz response based on input.
+        :param num: Number checked against FizzBuzz.
+        :return: FizzBuzz result based on param.
+        """
+        if num % 15 == 0:
             return "FizzBuzz"
-        elif count % 5 == 0:
+        elif num % 5 == 0:
             return "Buzz"
-        elif count % 3 == 0:
+        elif num % 3 == 0:
             return "Fizz"
         else:
-            return str(count)
+            return str(num)
 
 
 class QuestionTwo:
