@@ -64,17 +64,30 @@ class Tester(unittest.TestCase):
         prime_list = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37]
         self.assertTrue(self.q_three.find_largest_prime_factor(sample_value) in prime_list)
 
-    def q_four_can_output_values_and_sum_of_dice(self):
-        pass
+    @data([2, [1, 1]], [3, [2, 5]])
+    def test_q_four_can_output_values_of_dice(self, sample_values):
+        temp_q = Main.QuestionFour(sample_values[0])
+        roll_results = temp_q.roll_dice()
+        self.assertTrue(roll_results["roll"] == sample_values[1])
 
-    def q_four_can_print_snake_eyes(self):
-        pass
+    @data([2, [1, 1]], [3, [2, 5]])
+    def test_q_four_can_output_sum_of_dice(self, sample_values):
+        temp_q = Main.QuestionFour(sample_values[0])
+        roll_results = temp_q.roll_dice()
+        self.assertTrue(roll_results["sum"] == sum(sample_values[1]))
 
-    def q_four_can_print_lucky_seven(self):
-        pass
+    @data([2, [1, 1]])
+    def test_q_four_can_print_snake_eyes(self, sample_values):
+        temp_q = Main.QuestionFour(sample_values[0])
+        roll_results = temp_q.roll_dice()
+        self.assertTrue(roll_results["message"] == "Snake Eyes")
+
+    @data([3, [2, 5]])
+    def test_q_four_can_print_lucky_seven(self, sample_values):
+        temp_q = Main.QuestionFour(sample_values[0])
+        roll_results = temp_q.roll_dice()
+        self.assertTrue(roll_results["message"] == "Lucky 7")
 
 
 if __name__ == "__main__":
     unittest.main()
-    tests = unittest.TestLoader().loadTestsFromTestCase(Tester)
-    unittest.TextTestRunner(verbosity=2).run(tests)

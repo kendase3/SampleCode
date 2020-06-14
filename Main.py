@@ -1,6 +1,9 @@
-from typing import List, Dict
+from typing import List
 from statistics import mean
 import math
+import random
+import time
+
 
 class QuestionOne:
     def solve(self):
@@ -64,8 +67,24 @@ class QuestionThree:
 
 
 class QuestionFour:
+    def __init__(self, seed=int(time.time())):
+        random.seed(seed)
+
     def solve(self):
-        pass
+        roll_results = self.roll_dice()
+        print("The roll was {0} and sum is {1}".format(roll_results["roll"], roll_results["sum"]))
+        if roll_results["message"] != "":
+            print(roll_results["message"])
+
+    def roll_dice(self):
+        dice_roll = [random.randint(1, 6) for _ in range(2)]
+        special_message = ""
+        if sum(dice_roll) == 2:
+            special_message = "Snake Eyes"
+        elif sum(dice_roll) == 7:
+            special_message = "Lucky 7"
+
+        return {"roll": dice_roll, "sum": sum(dice_roll), "message": special_message}
 
 
 def main():
