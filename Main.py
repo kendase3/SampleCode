@@ -112,16 +112,35 @@ class QuestionThree:
 
 
 class QuestionFour:
+    """
+    Handles rolling of two standard dice, outputting roll results, sum of roll, and
+    situational message if sum=2 or sum=7.
+    """
     def __init__(self, seed=None):
+        """
+
+        :param seed: Defaults to None. Can be used to explicitly prime randomization for testing.
+        """
         random.seed(seed)
 
-    def solve(self):
+    def solve(self) -> None:
+        """
+
+        :return: None. Prints roll results, sum, and message if sum=2 or sum=7.
+        """
         roll_results = self.roll_dice()
         print("The roll was {0} and sum is {1}".format(roll_results["roll"], roll_results["sum"]))
         if roll_results["message"] != "":
             print(roll_results["message"])
 
     def roll_dice(self):
+        """
+        Rolls dice. Calculates sum of dice roll. Adds message as follows:
+        If sum=2, message is "Snake Eyes"
+        If sum=7, message is "Lucky 7"
+        If sum!=2 and sum!=7, message is empty.
+        :return: Dictionary of roll, sum, and message.
+        """
         dice_roll = [random.randint(1, 6) for _ in range(2)]
         special_message = ""
         if sum(dice_roll) == 2:
@@ -132,7 +151,10 @@ class QuestionFour:
         return {"roll": dice_roll, "sum": sum(dice_roll), "message": special_message}
 
 
-def main():
+def main() -> None:
+    """
+    Main method, used for sample runs of above classes.
+    """
     question_one = QuestionOne()
     question_two = QuestionTwo()
     question_three = QuestionThree()
