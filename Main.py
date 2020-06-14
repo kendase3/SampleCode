@@ -2,7 +2,6 @@ from typing import List
 from statistics import mean
 import math
 import random
-import time
 
 
 class QuestionOne:
@@ -67,7 +66,7 @@ class QuestionThree:
 
 
 class QuestionFour:
-    def __init__(self, seed=int(time.time())):
+    def __init__(self, seed=None):
         random.seed(seed)
 
     def solve(self):
